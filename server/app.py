@@ -4,6 +4,8 @@ import os
 
 app = Flask(__name__)
 
+util.load_saved_artifacts()  # <-- Move this here
+
 @app.route('/')
 def home():
     return 'Bengaluru House Price Prediction Server is running.'
@@ -35,7 +37,7 @@ def predict_house_price():
 
 if __name__ == '__main__':
     print('Starting Python server for Bengaluru House Price Prediction')
-    util.load_saved_artifacts()
+    # util.load_saved_artifacts()  # <-- Remove or comment this line
     
     # Use environment PORT if deployed on cloud (Render/Heroku)
     port = int(os.environ.get('PORT', 5000))
