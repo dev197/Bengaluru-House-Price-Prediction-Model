@@ -4,6 +4,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return 'Bengaluru House Price Prediction Server is running.'
+
 # Route to get all location names
 @app.route('/get_location_names')
 def get_location_names():
